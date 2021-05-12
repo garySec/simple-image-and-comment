@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Image{% endblock %}
+
+{% block body %}
+	<div class="container">
+    <h1>Edit Image</h1>
+
+    <picture>
+		<img src="{{ asset('uploads/') ~ image.name }}" class="img-fluid img-thumbnail">
+	</picture>
+
+    {{ include('image/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('image_index') }}"><button class="btn btn-outline-secondary m-2">back to list</button></a>
+
+    {{ include('image/_delete_form.html.twig') }}
+    </div>
+ <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
+<script>
+    $(document).ready(function () {
+        bsCustomFileInput.init()
+    });
+</script>
+{% endblock %}

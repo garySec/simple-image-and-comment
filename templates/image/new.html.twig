@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Image{% endblock %}
+
+{% block body %}
+	<div class="container">
+    <h1>Create new Image</h1>
+
+    {% for msg in app.flashes('selectImage') %}
+
+    	<div class="alert alert-danger">
+                {{ msg }}
+            </div>
+
+    {% endfor %}
+    {{ include('image/_form.html.twig') }}
+    
+    <a href="{{ path('image_index') }}"><button class="btn btn-outline-secondary m-2">back to list</button></a>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        bsCustomFileInput.init()
+    });
+</script>
+
+</div>
+    {{form_end(form)}}
+{% endblock %}

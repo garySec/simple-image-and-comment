@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Image index{% endblock %}
+
+{% block body %}
+<div class="container my-5 py-5">
+    <a href="{{ path('image_new') }}"><button class="btn btn-outline-dark btn-block">Add image</button></a> 
+        {% for image in images %}
+​
+                    <div class="dropdown">
+                    <picture>
+                        <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="{{ asset('uploads/') ~ image.name }}" class="img-fluid img-thumbnail">
+                        </button>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ path('image_show', {'id': image.id}) }}">show</a>
+                                <a class="dropdown-item" href="{{ path('image_edit', {'id': image.id}) }}">edit</a>
+                              </div>
+                    </picture>
+                        </div>
+
+        {% else %}
+            <br>
+            <center><h3>No Image ...</h3></center>
+        {% endfor %}
+</div>
+{% endblock %}

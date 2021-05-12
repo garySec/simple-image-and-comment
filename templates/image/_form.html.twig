@@ -1,0 +1,22 @@
+
+{{ form_start(form) }}
+
+    {{ form_row(form.image) }}
+        
+        <div class="col-sm-8 col-sm-offset-2" id="cmt_id" data-prototype="{{ form_widget(form.comment.vars.prototype.data)|e('html_attr') }}">
+            {% for row in form.comment %}
+                <div class="card">
+                    <div class="card-header bg-dark text-white">
+                        <strong>Comment</strong>
+                    </div>
+                    <div class="card-body">
+                        {{ form_row(row) }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        
+
+<button class="btn btn-outline-dark m-2">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+
